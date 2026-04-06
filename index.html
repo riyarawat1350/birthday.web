@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ensuring mobile friendliness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>EventDhara — Unforgettable Events Start Here</title>
+  <meta name="description" content="EventDhara is a premium luxury birthday and event planning service offering theme decoration, photography, DJ setup, and catering." />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       PRELOADER
+  ============================================= -->
+  <div id="preloader" class="preloader">
+    <div class="spinner"></div>
+    <div class="preloader-text">Setting the stage...</div>
+  </div>
+
+  <!-- =============================================
+       SCROLL PROGRESS BAR
+  ============================================= -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
+  <!-- =============================================
+       CONFETTI CANVAS (Hidden until checkout)
+  ============================================= -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+  <!-- =============================================
+       STICKY GLASSMORPHISM NAVIGATION BAR
+  ============================================= -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+
+      <!-- Brand Logo -->
+      <a href="#hero" class="nav-logo" aria-label="EventDhara Home">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        EventDhara
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#pricing" class="nav-link">Packages</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      </ul>
+
+      <!-- Navbar Actions (Dark Mode, Cart, CTA) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="nav-icon-btn" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        
+        <!-- Cart Toggle -->
+        <button id="cartIconBtn" class="nav-icon-btn" aria-label="Open Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-bubble" id="cartCount">0</span>
+        </button>
+
+        <!-- CTA Button (Desktop) -->
+        <a href="#pricing" class="btn btn-gold nav-cta" aria-label="Book an Event" id="desktopNavCta">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+          Book Event
+        </a>
+
+        <!-- Hamburger Menu Toggle (Mobile) -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navLinks">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =============================================
+       HERO SECTION WITH PARALLAX
+  ============================================= -->
+  <section id="hero" class="hero-section" aria-label="Hero — Welcome">
+    <!-- Floating decorative background orbs -->
+    <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
+
+    <div class="container hero-container">
+
+      <!-- Left: Text Content -->
+      <div class="hero-text reveal">
+        <span class="hero-badge">
+          <i class="fa-solid fa-crown" aria-hidden="true"></i>
+          Premium Event Planning
+        </span>
+        <h1 class="hero-headline">
+          Unforgettable<br />
+          <span class="gradient-text">Events</span><br />
+          Start Here
+        </h1>
+        <p class="hero-subtext">
+          From intimate birthday gatherings to grand luxury celebrations — we craft magical moments that last a lifetime. Every detail, perfected.
+        </p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-gold btn-lg" id="hero-book-btn">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            Explore Packages
+          </a>
+          <a href="#gallery" class="btn btn-outline btn-lg">
+            <i class="fa-solid fa-images" aria-hidden="true"></i>
+            View Gallery
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Overlapping Masonry Photo Grid -->
+      <div class="hero-masonry reveal parallax-group" aria-label="Birthday event showcase photos">
+        <div class="masonry-card masonry-card--1 parallax" data-speed="2">
+          <img src="https://i.pinimg.com/736x/d2/15/90/d215908906e855be76820d28baf964e3.jpg" alt="Elegant birthday balloon decoration" loading="lazy" />
+        </div>
+        <div class="masonry-card masonry-card--2 parallax" data-speed="4">
+          <img src="https://i.pinimg.com/736x/d6/45/d6/d645d651eb7367c6578a5cd06a140a33.jpg" alt="Luxury cake and table decoration" loading="lazy" />
+        </div>
+        <div class="masonry-card masonry-card--3 parallax" data-speed="6">
+          <img src="https://i.pinimg.com/1200x/95/5c/84/955c84116beafe2342525412e9135951.jpg" alt="Premium event setup with lights" loading="lazy" />
+        </div>
+        
+        <div class="masonry-badge parallax" data-speed="8" aria-hidden="true">
+          <i class="fa-solid fa-star"></i>
+          <span>Premium Setup</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       STATS COUNTER SECTION
+  ============================================= -->
+  <section id="stats" class="section stats-section glass-section">
+    <div class="container stats-container reveal">
+      <div class="stat-box">
+        <i class="fa-solid fa-calendar-check stat-icon"></i>
+        <h3 class="stat-number" data-target="500">0</h3>
+        <p class="stat-label">Events Done</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-box">
+        <i class="fa-solid fa-face-smile-beam stat-icon"></i>
+        <h3 class="stat-number" data-target="100" data-suffix="%">0</h3>
+        <p class="stat-label">Happy Clients</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-box">
+        <i class="fa-solid fa-map-location-dot stat-icon"></i>
+        <h3 class="stat-number" data-target="15" data-suffix="+">0</h3>
+        <p class="stat-label">Cities Covered</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-box">
+        <i class="fa-solid fa-star stat-icon"></i>
+        <h3 class="stat-number" data-target="4.9" data-decimal="true">0</h3>
+        <p class="stat-label">Average Rating</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SERVICES SECTION
+  ============================================= -->
+  <section id="services" class="section services-section" aria-label="Our Services">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Our <span class="gradient-text">Services</span></h2>
+        <p class="section-subtitle">Everything you need for a flawless event — all under one roof.</p>
+      </div>
+
+      <div class="services-grid" role="list">
+        <!-- Card 1: Theme Decoration -->
+        <article class="service-card glass-card reveal" role="listitem">
+          <div class="service-icon-wrap"><i class="fa-solid fa-palette service-icon"></i></div>
+          <h3 class="service-title">Theme Decoration</h3>
+          <p class="service-desc">Custom themes tailored to your vision — from dreamy pastels to vibrant celebrations.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check-circle"></i> 100+ unique themes</li>
+            <li><i class="fa-solid fa-check-circle"></i> Balloon artistry</li>
+            <li><i class="fa-solid fa-check-circle"></i> Floral arrangements</li>
+          </ul>
+        </article>
+
+        <!-- Card 2: Photography -->
+        <article class="service-card glass-card reveal" role="listitem">
+          <div class="service-icon-wrap"><i class="fa-solid fa-camera service-icon"></i></div>
+          <h3 class="service-title">Photography & Reels</h3>
+          <p class="service-desc">Professional photographers and videographers who capture every magical moment.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check-circle"></i> HD photo delivery</li>
+            <li><i class="fa-solid fa-check-circle"></i> Cinematic reels</li>
+            <li><i class="fa-solid fa-check-circle"></i> Same-day previews</li>
+          </ul>
+        </article>
+
+        <!-- Card 3: DJ Setup -->
+        <article class="service-card glass-card reveal" role="listitem">
+          <div class="service-icon-wrap"><i class="fa-solid fa-music service-icon"></i></div>
+          <h3 class="service-title">DJ & Sound Setup</h3>
+          <p class="service-desc">Pro DJ equipment, artists, and sound engineering to keep the energy alive.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check-circle"></i> Pro audio systems</li>
+            <li><i class="fa-solid fa-check-circle"></i> LED dance floors</li>
+            <li><i class="fa-solid fa-check-circle"></i> Custom playlists</li>
+          </ul>
+        </article>
+
+        <!-- Card 4: Catering -->
+        <article class="service-card glass-card reveal" role="listitem">
+          <div class="service-icon-wrap"><i class="fa-solid fa-utensils service-icon"></i></div>
+          <h3 class="service-title">Premium Catering</h3>
+          <p class="service-desc">Indulge your guests with custom menus and designer cakes crafted by top chefs.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check-circle"></i> Custom cake designs</li>
+            <li><i class="fa-solid fa-check-circle"></i> Live food stations</li>
+            <li><i class="fa-solid fa-check-circle"></i> Veg & Non-veg menus</li>
+          </ul>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       GALLERY SECTION
+  ============================================= -->
+  <section id="gallery" class="section gallery-section" aria-label="Photo Gallery">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">Event <span class="gradient-text">Gallery</span></h2>
+        <p class="section-subtitle">A glimpse into the magical events we've crafted with love.</p>
+        
+        <!-- Gallery Search -->
+        <div class="gallery-search glass-card">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="gallerySearch" placeholder="Search gallery (e.g., Cake, Balloons...)" aria-label="Search gallery images" />
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid reveal" id="galleryGrid" role="tabpanel">
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="birthday balloons decor luxury">
+          <img src="https://i.pinimg.com/736x/d2/15/90/d215908906e855be76820d28baf964e3.jpg" alt="Elegant birthday balloon decoration" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="birthday cake luxury premium">
+          <img src="https://i.pinimg.com/736x/d6/45/d6/d645d651eb7367c6578a5cd06a140a33.jpg" alt="Luxury cake and table decoration" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="event setup lights gold">
+          <img src="https://i.pinimg.com/1200x/95/5c/84/955c84116beafe2342525412e9135951.jpg" alt="Premium event setup with lights" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="blue silver balloons decor">
+          <img src="https://i.pinimg.com/1200x/53/49/00/534900e0590a7950f22d48ba4a5ae143.jpg" alt="Blue and silver balloon setup" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="pink white theme floral">
+          <img src="https://i.pinimg.com/736x/5d/e6/38/5de638ffba7e26c84661e9934f5c2076.jpg" alt="Pink and white themed birthday" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="luxury gold party setup">
+          <img src="https://i.pinimg.com/1200x/82/2d/8f/822d8fdbb05a46e7049884307c7fe6a7.jpg" alt="Gold luxury party setup" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="colorful balloons kids party">
+          <img src="https://i.pinimg.com/736x/2b/80/49/2b80493a0fbed82f1c768b5c084f7955.jpg" alt="Kids colorful birthday party" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="basic birthday setup budget">
+          <img src="https://i.pinimg.com/1200x/a6/87/e4/a687e412431c6055f597c00e536fd2a6.jpg" alt="Basic birthday decoration" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="premium theme elegant birthday">
+          <img src="https://i.pinimg.com/736x/39/ec/22/39ec22b02340b118e3a20e5532e2cd1f.jpg" alt="Premium birthday theme" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="luxury full event premium">
+          <img src="https://i.pinimg.com/736x/37/33/6a/37336a6d1d3999ff62c35a5357e18c85.jpg" alt="Luxury full event setup" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="kids theme happy blue">
+          <img src="https://i.pinimg.com/1200x/a8/59/e3/a859e33f812f62b7c4ef19d5719d1c3c.jpg" alt="Children birthday theme" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="girls pink theme princess">
+          <img src="https://i.pinimg.com/736x/44/69/41/44694191b7c9e48e62cce047642fe92c.jpg" alt="Pink theme for girls" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="twins theme combined party">
+          <img src="https://i.pinimg.com/736x/95/91/d0/9591d013b240cedc1adbdee25f239806.jpg" alt="Twins birthday theme" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="adult theme corporate chic">
+          <img src="https://i.pinimg.com/736x/cf/49/e3/cf49e3aaf08d07dda342beb49a44ca57.jpg" alt="Elegant adult birthday theme" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-category="birthday" data-keywords="surprise birthday setup cakes">
+          <img src="https://i.pinimg.com/1200x/0a/a7/67/0aa767a3a0e9b32a424f1b6d085010ac.jpg" alt="Surprise birthday setup" loading="lazy" />
+          <figcaption class="gallery-overlay"><i class="fa-solid fa-expand"></i></figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       PRICING PACKAGES SECTION
+  ============================================= -->
+  <section id="pricing" class="section pricing-section" aria-label="Pricing Packages">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Choose Your Package</span>
+        <h2 class="section-title">Event <span class="gradient-text">Packages</span></h2>
+        <p class="section-subtitle">Transparent pricing, extraordinary experiences. No hidden costs.</p>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="pricing-grid reveal" role="list">
+
+        <!-- ===== BASIC PACKAGE ===== -->
+        <article class="pricing-card glass-card" role="listitem" aria-label="Basic Package - ₹5,999" data-package="Basic" data-price="5999">
+          <div class="pricing-img-wrap">
+            <img src="https://i.pinimg.com/1200x/a6/87/e4/a687e412431c6055f597c00e536fd2a6.jpg" alt="Basic birthday decoration" loading="lazy" class="pricing-banner-img" />
+            <div class="pricing-img-overlay"></div>
+          </div>
+          <div class="pricing-content">
+            <div class="pricing-tier-badge"><i class="fa-solid fa-gift"></i> Basic</div>
+            <div class="pricing-price">
+              <span class="price-currency">₹</span><span class="price-amount">5,999</span><span class="price-period">/ event</span>
+            </div>
+            <p class="pricing-tagline">Perfect start for a beautiful day</p>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Balloon Decoration</li>
+              <li><i class="fa-solid fa-check"></i> Designer Birthday Cake</li>
+              <li><i class="fa-solid fa-check"></i> Basic Table Setup</li>
+              <li><i class="fa-solid fa-check"></i> Welcome Banner</li>
+              <li class="feature-missing"><i class="fa-solid fa-xmark"></i> Photography</li>
+              <li class="feature-missing"><i class="fa-solid fa-xmark"></i> DJ Setup</li>
+            </ul>
+            <button class="btn btn-outline btn-block book-now-btn" data-package="Basic" data-price="5999">
+              <i class="fa-solid fa-calendar-plus"></i> Customize & Book
+            </button>
+          </div>
+        </article>
+
+        <!-- ===== PREMIUM PACKAGE (Most Popular) ===== -->
+        <article class="pricing-card glass-card pricing-card--popular" role="listitem" aria-label="Premium Package - ₹12,999" data-package="Premium" data-price="12999">
+          <div class="glow-border"></div>
+          <div class="popular-badge"><i class="fa-solid fa-fire-flame-curved"></i> Most Popular</div>
+          <div class="pricing-img-wrap">
+            <img src="https://i.pinimg.com/736x/39/ec/22/39ec22b02340b118e3a20e5532e2cd1f.jpg" alt="Premium birthday theme" loading="lazy" class="pricing-banner-img" />
+            <div class="pricing-img-overlay"></div>
+          </div>
+          <div class="pricing-content">
+            <div class="pricing-tier-badge pricing-tier-badge--gold"><i class="fa-solid fa-crown"></i> Premium</div>
+            <div class="pricing-price">
+              <span class="price-currency">₹</span><span class="price-amount">12,999</span><span class="price-period">/ event</span>
+            </div>
+            <p class="pricing-tagline">The crowd favourite | Full experience</p>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Theme Decoration</li>
+              <li><i class="fa-solid fa-check"></i> Professional Photography</li>
+              <li><i class="fa-solid fa-check"></i> DJ & Sound Setup</li>
+              <li><i class="fa-solid fa-check"></i> Designer Cake</li>
+              <li><i class="fa-solid fa-check"></i> LED Lighting</li>
+              <li class="feature-missing"><i class="fa-solid fa-xmark"></i> Full Catering</li>
+            </ul>
+            <button class="btn btn-gold btn-block book-now-btn" data-package="Premium" data-price="12999">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Customize & Book
+            </button>
+          </div>
+        </article>
+
+        <!-- ===== LUXURY PACKAGE ===== -->
+        <article class="pricing-card glass-card" role="listitem" aria-label="Luxury Package - ₹24,999" data-package="Luxury" data-price="24999">
+          <div class="pricing-img-wrap">
+            <img src="https://i.pinimg.com/736x/37/33/6a/37336a6d1d3999ff62c35a5357e18c85.jpg" alt="Luxury full event setup" loading="lazy" class="pricing-banner-img" />
+            <div class="pricing-img-overlay"></div>
+          </div>
+          <div class="pricing-content">
+            <div class="pricing-tier-badge pricing-tier-badge--luxury"><i class="fa-solid fa-gem"></i> Luxury</div>
+            <div class="pricing-price">
+              <span class="price-currency">₹</span><span class="price-amount">24,999</span><span class="price-period">/ event</span>
+            </div>
+            <p class="pricing-tagline">The ultimate celebration experience</p>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Full Event Setup</li>
+              <li><i class="fa-solid fa-check"></i> Custom Lighting Rig</li>
+              <li><i class="fa-solid fa-check"></i> Full Catering Service</li>
+              <li><i class="fa-solid fa-check"></i> Premium Photography</li>
+              <li><i class="fa-solid fa-check"></i> DJ + Live Music</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated Manager</li>
+            </ul>
+            <button class="btn btn-outline btn-block book-now-btn" data-package="Luxury" data-price="24999">
+              <i class="fa-solid fa-gem"></i> Customize & Book
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FAQ SECTION
+  ============================================= -->
+  <section id="faq" class="section faq-section">
+    <div class="container maxWidth-md">
+      <div class="section-header reveal">
+        <span class="section-label">Common Questions</span>
+        <h2 class="section-title">Got <span class="gradient-text">Questions?</span></h2>
+      </div>
+
+      <div class="faq-accordion reveal">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item glass-card">
+          <button class="faq-btn" aria-expanded="false">
+            How far in advance should I book?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p>For standard and premium packages, we recommend booking at least 2-3 weeks in advance. For luxury setups, especially during peak wedding and event seasons, a 1-month notice ensures everything is perfectly customized to your vision.</p>
+          </div>
+        </div>
+        <!-- FAQ Item 2 -->
+        <div class="faq-item glass-card">
+          <button class="faq-btn" aria-expanded="false">
+            Can I customize a package completely?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p>Absolutely! The multi-step booking module allows you to start with a base package and dynamically choose specific themes and individual add-ons. If you need something completely bespoke, please contact our team directly.</p>
+          </div>
+        </div>
+        <!-- FAQ Item 3 -->
+        <div class="faq-item glass-card">
+          <button class="faq-btn" aria-expanded="false">
+            Do you cater to locations outside the city?
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p>Yes, we offer services entirely across Maharashtra. Events located more than 30km outside typical metropolitan areas may incur a small customized logistics and travel fee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       REVIEWS / TESTIMONIALS SECTION
+  ============================================= -->
+  <section id="reviews" class="section reviews-section" aria-label="Customer Reviews">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What Clients Say</span>
+        <h2 class="section-title">Love From Our <span class="gradient-text">Clients</span></h2>
+        <p class="section-subtitle">Real stories from real celebrations.</p>
+      </div>
+
+      <!-- Horizontal Scrollable Reviews Track -->
+      <div class="reviews-scroll-container reveal">
+        <div class="reviews-track" id="reviewsTrack">
+
+          <article class="review-card glass-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="review-text">"EventDhara turned my daughter's birthday into an absolute fairytale! Breathtaking."</blockquote>
+            <div class="review-author">
+              <div class="reviewer-avatar">PS</div>
+              <div class="reviewer-info"><strong>Priya Sharma</strong><span>Mumbai</span></div>
+            </div>
+          </article>
+          
+          <article class="review-card glass-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="review-text">"Premium package was worth every rupee. The DJ setup was incredible and the food top tier."</blockquote>
+            <div class="review-author">
+              <div class="reviewer-avatar">RV</div>
+              <div class="reviewer-info"><strong>Rohit Verma</strong><span>Delhi</span></div>
+            </div>
+          </article>
+          
+          <article class="review-card glass-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="review-text">"The twins birthday theme was magical. Guests couldn't stop complimenting everything!"</blockquote>
+            <div class="review-author">
+              <div class="reviewer-avatar">AI</div>
+              <div class="reviewer-info"><strong>Ananya Iyer</strong><span>Bangalore</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Navigation Arrows for Review Carousel -->
+      <div class="reviews-controls reveal">
+        <button class="review-arrow" id="reviewPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="review-dots" id="reviewDots"></div>
+        <button class="review-arrow" id="reviewNext"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CONTACT SECTION
+  ============================================= -->
+  <section id="contact" class="section contact-section" aria-label="Contact Us">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's Plan Your <span class="gradient-text">Dream Event</span></h2>
+        <p class="section-subtitle">Reach out and our team will get back to you within 2 hours.</p>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- Contact Info -->
+        <div class="contact-info glass-card reveal">
+          <h3>Contact Information</h3>
+          <ul class="contact-list">
+            <li><i class="fa-solid fa-phone"></i><div><strong>Call Us</strong><a href="#">+91 88888 88888</a></div></li>
+            <li><i class="fa-brands fa-whatsapp"></i><div><strong>WhatsApp</strong><a href="#">+91 88888 88888</a></div></li>
+            <li><i class="fa-solid fa-envelope"></i><div><strong>Email Us</strong><a href="#">hello@eventdhara.in</a></div></li>
+            <li><i class="fa-solid fa-location-dot"></i><div><strong>Location</strong><span>Mumbai, India</span></div></li>
+          </ul>
+          <div class="contact-social">
+            <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form glass-card reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName">Full Name</label>
+              <input type="text" id="contactName" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="contactPhone">Phone</label>
+              <input type="tel" id="contactPhone" required placeholder="+91 00000 00000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactEvent">Event Type</label>
+            <select id="contactEvent" required>
+              <option value="" disabled selected>Select event type</option>
+              <option value="birthday">Birthday Party</option>
+              <option value="anniversary">Anniversary</option>
+              <option value="corporate">Corporate</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" rows="4" required placeholder="Tell us about the dream..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block" id="contactSubmitBtn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+          <p class="form-success" id="formSuccess" hidden>
+            <i class="fa-solid fa-circle-check"></i> Sent! We'll reply within 2 hours.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo"><i class="fa-solid fa-star"></i> EventDhara</a>
+        <p>Crafting unforgettable memories, one event at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Packages</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Theme Decoration</a></li>
+          <li><a href="#services">Photography</a></li>
+          <li><a href="#services">Premium Catering</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 EventDhara. Crafted with <i class="fa-solid fa-heart" style="color:var(--gold)"></i> in India.</p>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       FLOATING ACTIONS
+  ============================================= -->
+  <button id="scrollTopBtn" class="floating-btn float-up hidden" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  <button id="floatingBookBtn" class="btn btn-gold floating-book-btn hidden">
+    Book Now
+  </button>
+
+  <!-- =============================================
+       CART DRAWER (Slide from right)
+  ============================================= -->
+  <div id="cartDrawerBackdrop" class="drawer-backdrop hidden"></div>
+  <aside id="cartDrawer" class="cart-drawer hidden" aria-label="Shopping Cart">
+    <div class="drawer-header">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Your Cart</h3>
+      <button class="close-drawer-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body" id="cartDrawerBody">
+      <!-- Cart items rendered via JS -->
+      <div class="cart-empty-state">Cart is currently empty.</div>
+    </div>
+    <div class="drawer-footer">
+      <div class="cart-total-row">
+        <span>Cart Total</span>
+        <strong id="cartDrawerTotal">₹0</strong>
+      </div>
+      <button class="btn btn-gold btn-block" id="cartCheckoutBtn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- =============================================
+       STEP A: THEME & ADD-ONS MODAL
+  ============================================= -->
+  <div id="stepAModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-container glass-modal" id="stepAContainer">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <span class="modal-step-label">Step 1 of 2</span>
+          <h2>Customize Your Event</h2>
+          <p class="modal-package-info">Base: <strong id="modalBasePrice">₹0</strong></p>
+        </div>
+        <button class="modal-close-btn" id="stepAClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="modal-section">
+          <h3 class="modal-section-title"><i class="fa-solid fa-masks-theater"></i> Choose a Theme</h3>
+          <div class="theme-grid">
+            <label class="theme-card" for="theme-kid"><input type="radio" name="theme" id="theme-kid" value="Kids Theme" checked /><div class="theme-card-inner"><img src="https://i.pinimg.com/1200x/a8/59/e3/a859e33f812f62b7c4ef19d5719d1c3c.jpg" alt="Kid"><span class="theme-label">Kids</span><div class="theme-check-icon"><i class="fa-solid fa-circle-check"></i></div></div></label>
+            <label class="theme-card" for="theme-girls"><input type="radio" name="theme" id="theme-girls" value="Girls Pink Theme" /><div class="theme-card-inner"><img src="https://i.pinimg.com/736x/44/69/41/44694191b7c9e48e62cce047642fe92c.jpg" alt="Girls Pink"><span class="theme-label">Girls Pink</span><div class="theme-check-icon"><i class="fa-solid fa-circle-check"></i></div></div></label>
+            <label class="theme-card" for="theme-twins"><input type="radio" name="theme" id="theme-twins" value="Twins Theme" /><div class="theme-card-inner"><img src="https://i.pinimg.com/736x/95/91/d0/9591d013b240cedc1adbdee25f239806.jpg" alt="Twins"><span class="theme-label">Twins</span><div class="theme-check-icon"><i class="fa-solid fa-circle-check"></i></div></div></label>
+            <label class="theme-card" for="theme-couple"><input type="radio" name="theme" id="theme-couple" value="Adult Theme" /><div class="theme-card-inner"><img src="https://i.pinimg.com/736x/cf/49/e3/cf49e3aaf08d07dda342beb49a44ca57.jpg" alt="Couple"><span class="theme-label">Adults</span><div class="theme-check-icon"><i class="fa-solid fa-circle-check"></i></div></div></label>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3 class="modal-section-title"><i class="fa-solid fa-circle-plus"></i> Customize with Add-ons</h3>
+          <div class="addons-grid">
+            <label class="addon-card" for="addon-cake"><input type="checkbox" id="addon-cake" name="addon" value="cake" data-price="1499" data-label="Designer Cake" /><div class="addon-card-inner"><img src="https://i.pinimg.com/736x/33/e5/42/33e54288d2a1bd0410b830d26ad6ee43.jpg"><div class="addon-info"><span class="addon-name">Cake</span><span class="addon-price">+₹1,499</span></div><div class="addon-checkbox-visual"><i class="fa-solid fa-check"></i></div></div></label>
+            <label class="addon-card" for="addon-table"><input type="checkbox" id="addon-table" name="addon" value="table" data-price="1999" data-label="Decorated Table" /><div class="addon-card-inner"><img src="https://i.pinimg.com/736x/15/47/b7/1547b719d017b1b010aa2f101b6b99ba.jpg"><div class="addon-info"><span class="addon-name">Table</span><span class="addon-price">+₹1,999</span></div><div class="addon-checkbox-visual"><i class="fa-solid fa-check"></i></div></div></label>
+            <label class="addon-card" for="addon-balloons"><input type="checkbox" id="addon-balloons" name="addon" value="balloons" data-price="999" data-label="Premium Balloons" /><div class="addon-card-inner"><img src="https://i.pinimg.com/736x/5a/23/c0/5a23c0f6e6667a1324e185054cb9c7ef.jpg"><div class="addon-info"><span class="addon-name">Balloons</span><span class="addon-price">+₹999</span></div><div class="addon-checkbox-visual"><i class="fa-solid fa-check"></i></div></div></label>
+            <label class="addon-card" for="addon-gate"><input type="checkbox" id="addon-gate" name="addon" value="gate" data-price="2499" data-label="Floral Entry Gate" /><div class="addon-card-inner"><img src="https://i.pinimg.com/1200x/e4/52/0c/e4520ca5765c331e00c64a990db45694.jpg"><div class="addon-info"><span class="addon-name">Entry Gate</span><span class="addon-price">+₹2,499</span></div><div class="addon-checkbox-visual"><i class="fa-solid fa-check"></i></div></div></label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="total-bar">
+        <div class="total-bar-left">
+          <span class="total-label"><i class="fa-solid fa-receipt"></i> Setup Total</span>
+        </div>
+        <strong class="total-amount" id="stepATotalAmount">₹0</strong>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="wishlistBtn" style="flex:1"><i class="fa-regular fa-heart"></i> Wishlist</button>
+        <button class="btn btn-outline" id="cartAddBtn" style="flex:1"><i class="fa-solid fa-cart-plus"></i> Cart</button>
+        <button class="btn btn-gold" id="buyNowBtn" style="flex:2"><i class="fa-solid fa-bolt"></i> Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       STEP B: ENHANCED CHECKOUT (Form + Upsell)
+  ============================================= -->
+  <div id="stepBModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-container glass-modal modal-container--wide">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <span class="modal-step-label">Step 2 of 2 — Secure Checkout</span>
+          <h2>Review & Confirm</h2>
+        </div>
+        <button class="modal-close-btn" id="stepBClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-body modal-body--two-col">
+        
+        <!-- LEFT: Final Details & Form -->
+        <div class="checkout-left">
+          <h3 class="checkout-section-title"><i class="fa-solid fa-list-check"></i> Order Summary</h3>
+          <div class="order-summary-list" id="orderSummaryList"></div>
+          
+          <div class="checkout-grand-total">
+            <span>Grand Total</span>
+            <strong id="grandTotalAmount">₹0</strong>
+          </div>
+
+          <!-- Checkout Form Details -->
+          <h3 class="checkout-section-title" style="margin-top:24px"><i class="fa-solid fa-address-card"></i> Client Details</h3>
+          <form id="checkoutSubmitForm" class="checkout-form">
+            <div class="form-row">
+              <div class="form-group"><input type="text" id="chkName" placeholder="Full Name" required></div>
+              <div class="form-group"><input type="tel" id="chkPhone" placeholder="Phone Number" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><input type="date" id="chkDate" required title="Event Date"></div>
+              <div class="form-group"><input type="text" id="chkAddress" placeholder="Location City" required></div>
+            </div>
+            
+            <button type="submit" class="btn btn-gold btn-block btn-confirm-pay" id="confirmPayBtn" style="margin-top:10px">
+              <i class="fa-solid fa-lock"></i> Confirm &amp; Pay
+            </button>
+          </form>
+
+          <!-- Success State Component -->
+          <div class="pay-success hidden" id="paySuccess">
+            <div class="pay-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h3>Event Scheduled!</h3>
+            <p>We've received your booking request. Check your SMS for confirmation details.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Upsell Options -->
+        <div class="checkout-right">
+          <h3 class="checkout-section-title"><i class="fa-solid fa-sparkles"></i> You Might Also Like</h3>
+          <p class="upsell-hint">Tap to add premium extras to your total instantly.</p>
+          <div class="upsell-grid">
+            <label class="upsell-card glass-card" for="upsell-photo"><input type="checkbox" id="upsell-photo" name="upsell" value="photobooth" data-price="3499" data-label="Photo Booth" /><div class="upsell-card-inner"><img src="https://i.pinimg.com/1200x/01/b5/9c/01b59c2bc54b108276f89a5fb1296548.jpg"><div class="upsell-info"><strong>Photo Booth</strong><span>Instant prints</span><span class="upsell-price">+₹3,499</span></div><div class="upsell-toggle">+ Add</div></div></label>
+            <label class="upsell-card glass-card" for="upsell-smoke"><input type="checkbox" id="upsell-smoke" name="upsell" value="smoke" data-price="1999" data-label="Smoke Machine" /><div class="upsell-card-inner"><img src="https://i.pinimg.com/736x/05/00/f6/0500f6aef4072bddfcbab8ab942f9932.jpg"><div class="upsell-info"><strong>Smoke Machine</strong><span>Dramatic fog</span><span class="upsell-price">+₹1,999</span></div><div class="upsell-toggle">+ Add</div></div></label>
+            <label class="upsell-card glass-card" for="upsell-arch"><input type="checkbox" id="upsell-arch" name="upsell" value="flowerarch" data-price="4999" data-label="Flower Arch" /><div class="upsell-card-inner"><img src="https://i.pinimg.com/736x/4f/9e/65/4f9e653a66aad1a80c173513060c5c91.jpg"><div class="upsell-info"><strong>Flower Arch</strong><span>Floral entry</span><span class="upsell-price">+₹4,999</span></div><div class="upsell-toggle">+ Add</div></div></label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" aria-live="polite">
+    <i class="fa-solid fa-circle-info"></i>
+    <span id="toastMessage">Action successful!</span>
+  </div>
+
+  <!-- =============================================
+       LIGHTBOX IMAGE VIEWER
+  ============================================= -->
+  <div id="lightbox" class="lightbox-overlay hidden" role="dialog" aria-modal="true" aria-label="Image Viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Full size preview" />
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
